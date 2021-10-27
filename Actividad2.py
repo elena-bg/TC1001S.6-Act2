@@ -1,5 +1,6 @@
 from random import randrange
 from turtle import *
+import random
 
 from freegames import square, vector
 
@@ -20,6 +21,17 @@ def inside(head):
 
 
 def move():
+    crand =random.randint(1,5)
+    if crand == 1:
+        color = 'blue'
+    elif crand == 2:
+        color = 'yellow'
+    elif crand == 3:
+        color ='green'
+    elif crand == 4:
+        color = 'purple'
+    elif crand == 5:
+        color = 'orange'
     "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
@@ -41,9 +53,9 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, color)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, color)
     update()
     ontimer(move, 100)
 

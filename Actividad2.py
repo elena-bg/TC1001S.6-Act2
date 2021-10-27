@@ -21,7 +21,8 @@ def inside(head):
 
 
 def move():
-    crand =random.randint(1,5)
+    #Escoger un valor aleatorio para el cambio de color
+    crand = random.randint(1,5)
     if crand == 1:
         color = 'blue'
     elif crand == 2:
@@ -45,8 +46,9 @@ def move():
 
     if head == food:
         print('Snake:', len(snake))
-        food.x = randrange(-15, 15) * 10
-        food.y = randrange(-15, 15) * 10
+        #Se mueve en un rango aleatorio entre -1 y 1 en los ejes "x" y "y"
+        food.x = randrange(-1, 1) * 10
+        food.y = randrange(-1, 1) * 10
     else:
         snake.pop(0)
 

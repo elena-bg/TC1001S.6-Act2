@@ -8,6 +8,29 @@ food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
+crand =random.randint(1,5)
+if crand == 1:
+    color = 'blue'
+elif crand == 2:
+    color = 'yellow'
+elif crand == 3:
+    color ='green'
+elif crand == 4:
+    color = 'purple'
+elif crand == 5:
+    color = 'orange'
+
+ccrand = random.randint(1,5)
+if ccrand == 1:
+    color2 = 'yellow'
+elif ccrand == 2:
+    color2 = 'blue'
+elif ccrand == 3:
+    color2 ='purple'
+elif ccrand == 4:
+    color2 = 'green'
+elif ccrand == 5:
+    color2 = 'orange'
 
 def change(x, y):
     "Change snake direction."
@@ -21,23 +44,12 @@ def inside(head):
 
 
 def move():
-    crand =random.randint(1,5)
-    if crand == 1:
-        color = 'blue'
-    elif crand == 2:
-        color = 'yellow'
-    elif crand == 3:
-        color ='green'
-    elif crand == 4:
-        color = 'purple'
-    elif crand == 5:
-        color = 'orange'
     "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
 
     if not inside(head) or head in snake:
-        square(head.x, head.y, 9, 'red')
+        square(head.x, head.y, 9, color)
         update()
         return
 
@@ -55,7 +67,7 @@ def move():
     for body in snake:
         square(body.x, body.y, 9, color)
 
-    square(food.x, food.y, 9, color)
+    square(food.x, food.y, 9, color2)
     update()
     ontimer(move, 100)
 
